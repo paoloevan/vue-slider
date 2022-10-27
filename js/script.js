@@ -1,9 +1,4 @@
-
-
-
-/*Partendo dal markup della versione svolta in js plain (vedi allegato),
-rifare lo slider ma questa volta usando Vue.
-
+/*
 Bonus:
 al click su una thumb, visualizzare in grande l'immagine corrispondente
 applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
@@ -39,6 +34,22 @@ createApp({
                 },
             ],
             activeImg: 0
+        }
+    },
+    methods: {
+        prevImg() {
+            if (this.activeImg === 0) {
+                this.activeImg = this.slides.length - 1
+            } else {
+                this.activeImg--
+            }
+        },
+        nextImg() {
+            if (this.activeImg === this.slides.length - 1) {
+                this.activeImg = 0
+            } else {
+                this.activeImg++
+            }
         }
     }
 }).mount('#app')
