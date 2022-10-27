@@ -29,21 +29,14 @@
                 <div class="thumbs">
                     <div class="prev"></div>
                     <div class="next"></div>
-                    <div class="thumb active">
-                        <img src="img/01.webp" alt="Svezia" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/02.webp" alt="Ratchet & Clank" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/03.webp" alt="Fortnite" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/04.webp" alt="Stray" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/05.webp" alt="Avengers" />
-                    </div>
+
+                    <template v-for="(img, i) in slides">
+                        <div class="thumb" :class="i === activeImg ? 'active' : ''">
+                            <img :src="slides[i].image" alt="Svezia" />
+                        </div>
+                    </template>
+
+                    
                 </div>
 
             </div>
