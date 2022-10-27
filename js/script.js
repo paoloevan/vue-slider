@@ -1,8 +1,3 @@
-/*
-quando il mouse va in hover sullo slider,
-bloccare l'autoplay e farlo riprendere quando esce
-*/
-
 const { createApp } = Vue;
 
 createApp({
@@ -31,7 +26,8 @@ createApp({
                     text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
                 },
             ],
-            activeImg: 0
+            activeImg: 0,
+            intervalId: null
         }
     },
     methods: {
@@ -51,14 +47,17 @@ createApp({
         },
         selectImg(index){
             this.activeImg = index
+        },
+        autoPlay(){
+            intervalId = setInterval(() => {
+                this.nextImg()
+            }, 500)
+        },
+        stopAuto(){
+            clearInterval(intervalId)
         }
-        
     },
     mounted(){
-        setInterval(() => {
-            this.nextImg()
-        }, 1000)
+        this.autoPlay()
     }
 }).mount('#app')
-
-//console.log(slides)
