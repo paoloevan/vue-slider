@@ -31,7 +31,7 @@
                     <div class="next" @click="nextImg"></div>
 
                     <template v-for="(img, i) in slides">
-                        <div class="thumb" :class="i === activeImg ? 'active' : ''">
+                        <div @click="selectImg(i)" class="thumb" :class="i === activeImg ? 'active' : ''">
                             <img :src="slides[i].image" alt="Svezia" />
                         </div>
                     </template>
